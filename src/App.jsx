@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import Card from './Components/Card'
+import Users from './Pages/Users'
 
 
 
@@ -19,6 +21,8 @@ const App = () => {
     }
   return (
     <>
+    <Users/>
+    <Card />
     <form onSubmit={addTodoTo} >
       <input onChange={(e)=> setTitle(e.target.value)} value={title} type="text" placeholder='Enter Title'  />
       <input onChange={(e) => setDescription(e.target.value)} value={description} type="text" placeholder='Enter Description '  />

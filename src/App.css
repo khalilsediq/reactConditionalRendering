@@ -1,0 +1,87 @@
+.card {
+  width: 320px;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  transition: all 0.3s ease;
+  margin: 20px;
+  position: relative;
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.2);
+}
+
+.card-image img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  filter: brightness(0.9);
+}
+
+.card-content {
+  padding: 24px;
+  background: white;
+  color: #333;
+}
+
+.card-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #2c3e50;
+  text-align: center;
+}
+
+.card-description {
+  font-size: 14px;
+  color: #7f8c8d;
+  line-height: 1.6;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.card-description::before {
+  content: "📧";
+  margin-right: 8px;
+  font-size: 16px;
+}
+
+.card-content p {
+  font-size: 14px;
+  color: #7f8c8d;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.card-content p::before {
+  content: "📞";
+  margin-right: 8px;
+  font-size: 16px;
+}
+
+.card-button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  width: 100%;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.card-button:hover {
+  background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
