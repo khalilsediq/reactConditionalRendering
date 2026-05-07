@@ -31,12 +31,18 @@ const Users = () => {
 
   return (
     <>
-    
+    <div style={{
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'space-evenly',
+    }}>
+        
     {Load && <h2> Loading Please wait</h2>}
     {error && <h2> Error Occured on over end, please try again later</h2>}
     {users && users.map((item => {
         return <Card title={item.name} email={item.email} phone={item.phone} key={item.id} />
     }))}
+    </div>
     </>
   )
 }
