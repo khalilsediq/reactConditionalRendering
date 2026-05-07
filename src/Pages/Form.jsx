@@ -1,15 +1,17 @@
 import React, { useState } from 'react'
 
 const Form = () => {
-  const [formData, setFormData] = useState({})
+  const [formData, setFormData] = useState({ Title: '', Desc: '', Phone: '' })
+  const [submissions, setSubmissions] = useState([])
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
-    console.log(formData);
-    
   }
-  const onAdd = () => {
 
+  const onAdd = () => {
+    if (!formData.Title && !formData.Desc && !formData.Phone) return
+    setSubmissions((prev) => [...prev, formData])
+    setFormData({ Title: '', Desc: '', Phone: '' })
   }
 
   return (
@@ -35,18 +37,21 @@ const Form = () => {
         value={formData.Phone ?? ''}
         onChange={handleChange}
       />
-      <button onClick={onAdd} >Add</button>
+      <button type='button' onClick={onAdd}>
+        Add
+      </button>
 
-
-      {formData && formData.map(((item, index) =>{
-        return (
-            <div key={index}>
-                <h2> {item.Title} </h2>
-                <h2> {item.Desc} </h2>
-                <h2> {item.Phone} </h2>
+      {submissions.length > 0 && (
+        <div>
+          {submissions.map((item, index) => (
+            <div key={index} style={{ border: '1px solid #ddd', padding: '0.75rem', marginTop: '0.75rem' }}>
+              <h2>{item.Title}</h2>
+              <p>{item.Desc}</p>
+              <p>{item.Phone}</p>
             </div>
-        )
-      }))}
+          ))}
+        </div>
+      )}
     </div>
   )
 }
