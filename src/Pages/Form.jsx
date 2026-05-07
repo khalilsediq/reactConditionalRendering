@@ -1,17 +1,35 @@
 import React, { useState } from "react";
 
 const Form = () => {
-  const [formData, setFormData] = useState({ Title: "", Desc: "", Phone: "" });
-  const [submissions, setSubmissions] = useState([]);
+  //   const [formData, setFormData] = useState({ Title: "", Desc: "", Phone: "" });
+  //   const [submissions, setSubmissions] = useState([]);
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  //   const handleChange = (e) => {
+  //     setFormData({ ...formData, [e.target.name]: e.target.value });
+  //   };
+
+  //   const onAdd = () => {
+  //     if (!formData.Title && !formData.Desc && !formData.Phone) return;
+  //     setSubmissions((prev) => [...prev, formData]);
+  //     setFormData({ Title: "", Desc: "", Phone: "" });
+  //   };
+
+  const [Form, setForm] = useState({
+    Name: "",
+    Email: "",
+    Phone: "",
+  });
+  const [RenderForm, setRenderForm] = useState([]);
+
+  const handleChanged = (e) => {
+    setForm({ ...Form, [e.target.name]: e.target.value });
+    console.log(Form);
   };
 
-  const onAdd = () => {
-    if (!formData.Title && !formData.Desc && !formData.Phone) return;
-    setSubmissions((prev) => [...prev, formData]);
-    setFormData({ Title: "", Desc: "", Phone: "" });
+  const onAddTheForm = () => {
+    if (!Form.Name && !Form.Email && !Form.Phone) return;
+    setRenderForm((prev) => [...prev, Form]);
+    setForm({ Name: "", Email: "", Phone: "" });
   };
 
   return (
@@ -33,7 +51,7 @@ const Form = () => {
             maxWidth: "320px",
           }}
         >
-          <input
+          {/* <input
             type="text"
             name="Title"
             placeholder="Enter your title"
@@ -56,20 +74,43 @@ const Form = () => {
           />
           <button type="button" onClick={onAdd}>
             Add
-          </button>
+          </button> */}
+
+          <input
+            onChange={handleChanged}
+            type="text"
+            placeholder="Enter Your Name"
+            name="Name"
+            value={Form.Name}
+          />
+          <input
+            onChange={handleChanged}
+            type="email"
+            placeholder="Enter Your Name"
+            name="Email"
+            value={Form.Email}
+          />
+          <input
+            onChange={handleChanged}
+            type="telephon"
+            placeholder="Enter Your Name"
+            name="Phone"
+            value={Form.Phone}
+          />
+          <button type="Button" onClick={onAddTheForm}>Add me</button>
         </div>
       </div>
 
-      {submissions.length > 0 && (
+      {RenderForm.length > 0 && (
         <div
           style={{
             display: "flex",
             flexWrap: "wrap",
-            gap: '20px',
-            justifyContent: "space-evenly"
+            gap: "5px",
+          justifyContent: 'center'
           }}
         >
-          {submissions.map((item, index) => (
+          {RenderForm.map((item, index) => (
             <div
               key={index}
               style={{
@@ -78,8 +119,8 @@ const Form = () => {
                 marginTop: "0.75rem",
               }}
             >
-              <h2>Title: {item.Title}</h2>
-              <p>Description: {item.Desc}</p>
+              <h2>Name: {item.Name}</h2>
+              <p>Email: {item.Email}</p>
               <p>Phone: {item.Phone}</p>
             </div>
           ))}
