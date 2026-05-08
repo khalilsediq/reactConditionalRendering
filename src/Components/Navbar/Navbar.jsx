@@ -10,7 +10,7 @@ const Navbar = () => {
         </div>
 
         <ul style={{ display: 'flex', gap: '1rem', listStyle: 'none', margin: 0, padding: 0 }}>
-          {['/', '/users', '/todo', '/form'].map((path, index) => {
+          {['/', '/users', '/todo', '/form', '/Posts'].map((path, index) => {
             const label = path === '/' ? 'Home' : path.replace('/', '').charAt(0).toUpperCase() + path.slice(2)
             return (
               <li key={index}>

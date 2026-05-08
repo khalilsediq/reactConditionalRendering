@@ -7,6 +7,7 @@ import Home from './Pages/Home.jsx'
 import Users from './Pages/Users.jsx'
 import Todo from './Pages/Todo.jsx'
 import Form from './Pages/Form.jsx'
+import Posts from './Pages/Posts.jsx'
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
         path: 'form',
         element: <Form />,
       },
+      {
+        path: 'Posts',
+        element: <Posts/>
+      }
     ],
   },
 ])
