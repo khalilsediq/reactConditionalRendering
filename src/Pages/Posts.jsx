@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Users from './Users'
 
 const Posts = () => {
@@ -22,6 +22,12 @@ const Posts = () => {
         }
         
     }
+
+    useEffect(() => {
+      fetchPostsData()
+    
+    }, [])
+    
     
   return (
     <>
